@@ -48,4 +48,5 @@ def reader_function(path):
         da.from_zarr(grp[d["path"]]) for d in multiscales["datasets"]
     ]
     tmp = {"name": multiscales["name"]}
-    return [(pyramid[0], )]
+    layers = [(pyramid[i], ) for i in range(len(pyramid))]
+    return layers
