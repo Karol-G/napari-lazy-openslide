@@ -49,4 +49,4 @@ def reader_function(path):
     ]
     add_kwargs = {"name": [d["path"] for d in multiscales["datasets"]]}
     # layers = [(pyramid[i], ) for i in range(len(pyramid))]
-    return [(pyramid, add_kwargs)]
+    return [(pyramid, )]
