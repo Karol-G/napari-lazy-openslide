@@ -2,6 +2,7 @@ import dask.array as da
 import zarr
 from napari_plugin_engine import napari_hook_implementation
 from napari.types import LayerDataTuple
+from typing import List
 
 
 @napari_hook_implementation
@@ -29,7 +30,7 @@ def napari_get_reader(path):
         return None
 
 
-def reader_function(path) -> LayerDataTuple:
+def reader_function(path) -> List[LayerDataTuple]:
     """Takes a path and returns a LayerData tuple where the data is a dask.array.
 
     Parameters
