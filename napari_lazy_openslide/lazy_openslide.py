@@ -44,9 +44,9 @@ def reader_function(path):
 
     multiscales = grp.attrs["multiscales"][0]
     pyramid = [
-        # da.from_zarr(grp, component=d["path"]) for d in multiscales["datasets"]
-        da.from_zarr(grp[d["path"]]) for d in multiscales["datasets"]
+        da.from_zarr(grp, component=d["path"]) for d in multiscales["datasets"]
+        # da.from_zarr(grp[d["path"]]) for d in multiscales["datasets"]
     ]
-    add_kwargs = {"name": [d["path"] for d in multiscales["datasets"]]}
-    # layers = [(pyramid[i], ) for i in range(len(pyramid))]
-    return [(pyramid, )]
+    # add_kwargs = {"name": [d["path"] for d in multiscales["datasets"]]}
+    add_kwargs = {"name": multiscales["name"]}
+    return [(pyramid, add_kwargs)]
